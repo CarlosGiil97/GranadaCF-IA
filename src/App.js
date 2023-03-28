@@ -21,7 +21,7 @@ function App() {
   const [pregunta, setPregunta] = useState('');
 
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: process.env.REACT_APP_API_KEY,
   });
 
   const openai = new OpenAIApi(configuration);
@@ -117,7 +117,9 @@ function App() {
             <span className="sr-only">Enviar</span>
         </button>
 
-        {showSpinner == true ? 
+      
+    </div>
+    {showSpinner == true ? 
       <>
         <div className="flex justify-between justify-center">
             <div
@@ -140,8 +142,6 @@ function App() {
                         </div>
                     );
                 })}
-    </div>
-
    
    
     <ToastContainer position="top-center" autoClose={1500} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark"
